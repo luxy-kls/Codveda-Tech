@@ -1,0 +1,203 @@
+
+*
+*::before
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2c3e50;
+  --light-bg: #f4f4f4;
+  --accent: rebeccapurple;
+  --accent-dark: #58189c;
+  --text-light: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===========================
+   HEADER + NAVIGATION
+=========================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: var(--primary);
+  color: var(--text-light);
+  height: 60px;
+}
+
+/* Fix the h1 squeezed problem */
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  white-space: nowrap;
+}
+
+/* Mobile nav hidden by default */
+#main-nav {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--primary);
+  position: absolute;
+  top: 60px;
+  left: 0;
+  z-index: 1000;
+  transition: max-height 0.3s ease;
+}
+
+#main-nav.active {
+  display: flex;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li a {
+  display: block;
+  padding: 15px 20px;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+nav li a:hover {
+  background-color: #333;
+}
+
+/* Hamburger button */
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero-section {
+  min-height: 60vh;
+  background-color: var(--primary);
+  color: var(--text-light);
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-section h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5em;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  max-width: 80%;
+  margin-bottom: 30px;
+}
+
+/* CTA Button */
+.cta-button {
+  background-color: var(--accent);
+  color: var(--text-light);
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--accent-dark);
+}
+
+/* ===========================
+   FEATURES SECTION
+=========================== */
+.feature-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.feature-item {
+  background-color: var(--light-bg);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 90%;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+@media (min-width: 768px) {
+
+  .menu-toggle {
+    display: none;
+  }
+
+  #main-nav {
+    display: flex !important;
+    position: static;
+    background: none;
+    width: auto;
+    flex-direction: row;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  nav li a {
+    padding: 0 10px;
+    line-height: 60px;
+  }
+
+  .hero-section {
+    min-height: 50vh;
+  }
+
+  .hero-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .feature-list-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px;
+  }
+
+  .feature-item {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
